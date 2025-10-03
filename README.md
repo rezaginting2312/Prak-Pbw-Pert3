@@ -28,7 +28,8 @@ Berisi informasi tentang LaraPress sebagai proyek pembelajaran
 routes/web.php
 
 Menambahkan route baru /tentang-kami yang mengarah ke view about.blade.php
-🛠️ Langkah-langkah Implementasi
+## 🛠️ Langkah-langkah Implementasi
+
 Step 1: Modifikasi Halaman Welcome
 Mengubah file resources/views/welcome.blade.php dari tampilan default Laravel (266 baris) menjadi HTML sederhana:
 <!DOCTYPE html>
@@ -67,7 +68,7 @@ Membuat file baru resources/views/about.blade.php:
 </body>
 </html>
 
-💻 Teknologi yang Digunakan
+## 💻 Teknologi yang Digunakan
 Framework: Laravel 12
 PHP Version: 8.x
 Database: SQLite (default)
@@ -103,3 +104,4 @@ Kontak
 
 ## Kesimpulan
 Praktikum ini berhasil memperkenalkan dasar-dasar penggunaan Laravel. Mahasiswa mampu menginstal dan menjalankan proyek Laravel, memahami alur kerja request–route–view–response, serta membuat dan menghubungkan halaman statis sederhana. Dengan pemahaman ini mahasiswa memiliki fondasi untuk melanjutkan ke materi Laravel yang lebih kompleks pada pertemuan selanjutnya.
+
