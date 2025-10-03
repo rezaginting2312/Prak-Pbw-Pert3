@@ -1,107 +1,79 @@
-﻿# Prak-Pbw-Pert3
-# LaraPress - Aplikasi Blog Sederhana
-LaraPress adalah aplikasi blog sederhana yang dibangun menggunakan Laravel 12 untuk tujuan pembelajaran dan pengembangan keterampilan web development.
-<img width="1917" height="1079" alt="image" src="https://github.com/user-attachments/assets/0767c983-15fa-473b-98c8-349f824bba92" />
-Tampilan halaman utama LaraPress
-📋 Tentang Proyek
-Proyek ini dibuat sebagai bagian dari pembelajaran Laravel framework. LaraPress mendemonstrasikan konsep-konsep dasar Laravel seperti routing, views, dan struktur MVC.
-🚀 Fitur yang Sudah Diimplementasikan
-1. Halaman Utama (Welcome Page)
-Mengubah tampilan default Laravel menjadi halaman sederhana
-Menampilkan judul "Selamat Datang di LaraPress"
-Struktur HTML yang bersih dan minimal
-2. Halaman Tentang Kami
-Route: /tentang-kami
-Menampilkan informasi tentang LaraPress
-Menjelaskan tujuan proyek sebagai pembelajaran Laravel 12
+# Praktikum Laravel 1 - LaraPress
 
-📁 Struktur File yang Dimodifikasi
-File yang Dibuat/Dimodifikasi:
-resources/views/welcome.blade.php
+## 📚 Deskripsi
+Praktikum ini memperkenalkan dasar-dasar framework Laravel. Pada pertemuan ini mahasiswa belajar menginstal proyek Laravel baru, menjalankan server development lokal, dan membuat halaman statis sederhana menggunakan Route dan View.
 
-Mengubah tampilan default Laravel yang kompleks menjadi struktur HTML sederhana
-Menampilkan pesan sambutan untuk pengunjung blog
-resources/views/about.blade.php (BARU)
+## 📝 Langkah-langkah Praktikum
 
-File view baru untuk halaman "Tentang Kami"
-Berisi informasi tentang LaraPress sebagai proyek pembelajaran
-routes/web.php
+### 1. Instalasi Laravel “LaraPress”
+- Buka terminal/command line (Laragon/XAMPP).
+- Navigasi ke folder root server lokal (contoh: `C:\laragon\www`).
+- Jalankan perintah:
+  ```bash
+  composer create-project laravel/laravel LaraPress
+  ```
+- Tunggu hingga Composer selesai mengunduh paket Laravel.
 
-Menambahkan route baru /tentang-kami yang mengarah ke view about.blade.php
-## 🛠️ Langkah-langkah Implementasi
+### 2. Menjalankan Server Development
+- Masuk ke folder proyek:
+  ```bash
+  cd LaraPress
+  ```
+- Jalankan server bawaan Laravel:
+  ```bash
+  php artisan serve
+  ```
+- Buka browser dan akses `http://127.0.0.1:8000`.
 
-Step 1: Modifikasi Halaman Welcome
-Mengubah file resources/views/welcome.blade.php dari tampilan default Laravel (266 baris) menjadi HTML sederhana:
-<!DOCTYPE html>
-<html lang="id">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Selamat Datang di LaraPress</title>
-</head>
-<body>
-    <h1>Selamat Datang di Blog LaraPress</h1>
-    <p>Ini adalah halaman utama dari aplikasi blog kita.</p>
-</body>
-</html>
+### 3. Memahami Alur Dasar Laravel (Route → View)
+- Buka proyek di VS Code.
+- Edit file `routes/web.php` untuk mendefinisikan route:
+  ```php
+  Route::get('/', function () {
+      return view('welcome');
+  });
+  ```
+- Modifikasi file tampilan `resources/views/welcome.blade.php` dengan HTML sederhana.
+- Refresh browser untuk melihat perubahan.
 
-Step 2: Membuat Route Baru
-Menambahkan route baru di routes/web.php:
+### 4. Membuat Halaman Statis Baru (“Tentang Kami”)
+- Tambah route baru di `routes/web.php`:
+  ```php
+  Route::get('/tentang-kami', function () {
+      return view('about');
+  });
+  ```
+- Buat file `resources/views/about.blade.php` berisi HTML halaman “Tentang Kami”.
+- Tambahkan link navigasi di kedua view:
+  - Di `welcome.blade.php`:
+    ```html
+    <a href="/tentang-kami">Lihat Halaman Tentang Kami</a>
+    ```
+  - Di `about.blade.php`:
+    ```html
+    <a href="/">Kembali ke Halaman Utama</a>
+    ```
 
-Route::get('/tentang-kami', function () {
-    return view('about');
-});
+### 5. Tugas Mandiri (Opsional)
+- Buat halaman statis baru bernama **Kontak**.
+- Akses melalui `/kontak` dan tambahkan info kontak fiktif.
+- Tambahkan link navigasi antarhalaman.
 
-Step 3: Membuat View About
-Membuat file baru resources/views/about.blade.php:
-<!DOCTYPE html>
-<html lang="id">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Tentang Kami - LaraPress</title>
-</head>
-<body>
-    <h1>Tentang LaraPress</h1>
-    <p>LaraPress adalah aplikasi blog sederhana yang dibuat dengan Laravel 12.</p>
-    <p>Proyek ini dibuat untuk tujuan pembelajaran dan pengembangan keterampilan.</p>
-</body>
-</html>
+## Halaman Utama
+<img width="1918" height="1079" alt="image" src="https://github.com/user-attachments/assets/9ea4c7c4-7ff9-4fb5-b935-44a519a214fe" />
 
-## 💻 Teknologi yang Digunakan
-Framework: Laravel 12
-PHP Version: 8.x
-Database: SQLite (default)
-Frontend: Blade Template Engine, HTML, CSS
-Build Tool: Vite
+## Tentang kami
+<img width="1919" height="1078" alt="image" src="https://github.com/user-attachments/assets/399b4e67-1ad9-4b7a-8583-85319378cad8" />
 
-📦 Instalasi
-Clone repository ini:
-git clone https://github.com/adiwp/pbw.git
-cd pro1
-Install dependencies:
-composer install
-npm install
-Buat file .env:
-cp .env.example .env
-Generate application key:
-php artisan key:generate
-Jalankan development server:
-php artisan serve
-Akses aplikasi di browser:
-http://localhost:8000
+## Kontak
+<img width="1919" height="1079" alt="image" src="https://github.com/user-attachments/assets/e5d42012-7926-459f-9cc0-35a7766cd666" />
 
-📸 Screenshot
-Halaman Utama
+## ✅ Kesimpulan Praktikum
+Praktikum ini membekali mahasiswa dengan pemahaman dasar framework Laravel.
 
-<img width="1918" height="1073" alt="image" src="https://github.com/user-attachments/assets/9d7d7d75-6784-4ca6-9b52-14842fbd62d7" />
+Mahasiswa berhasil:
+- Menginstal proyek Laravel baru dengan Composer.
+- Menjalankan server development lokal menggunakan Artisan.
+- Membuat dan menghubungkan halaman statis dengan mendefinisikan **Route** dan **View**.
 
-Tentang kami
-<img width="1919" height="1079" alt="image" src="https://github.com/user-attachments/assets/b9f008b5-6445-4b00-9715-b58ebc5287d6" />
-
-Kontak
-<img width="1919" height="1079" alt="image" src="https://github.com/user-attachments/assets/a7cab039-2d1a-435a-a35c-107eda684917" />
-
-## Kesimpulan
-Praktikum ini berhasil memperkenalkan dasar-dasar penggunaan Laravel. Mahasiswa mampu menginstal dan menjalankan proyek Laravel, memahami alur kerja request–route–view–response, serta membuat dan menghubungkan halaman statis sederhana. Dengan pemahaman ini mahasiswa memiliki fondasi untuk melanjutkan ke materi Laravel yang lebih kompleks pada pertemuan selanjutnya.
-
+Dengan langkah ini mahasiswa sudah memahami siklus permintaan paling dasar di Laravel (**Request → Route → View → Response**) sebagai fondasi untuk mengembangkan fitur Laravel yang lebih kompleks pada praktikum berikutnya.
